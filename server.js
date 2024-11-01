@@ -1,8 +1,8 @@
-const express = require('express');
-const fetch = require('node-fetch');
-const config = require('config');
-const app = express();
+import express from 'express';
+import fetch from 'node-fetch';
+import config from 'config';
 
+const app = express();
 const PORT = config.get('port') || 3000;
 
 app.get('/proxy', async (req, res) => {
