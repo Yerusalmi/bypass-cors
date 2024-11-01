@@ -4,6 +4,15 @@ import fetch from 'node-fetch';
 const app = express();
 const PORT = 3000;
 
+// Middleware to set CORS headers
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins or specify your domain here
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
+
 app.get('/proxy', async (req, res) => {
   const targetUrl = req.query.url;
 
